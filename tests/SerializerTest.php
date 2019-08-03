@@ -14,8 +14,7 @@ abstract class SerializerTest extends TestCase
      */
     public function testSerialize($value, $expected)
     {
-        $s = $this->getSerializer();
-        $serialized = $serializer->serialize($value);
+        $serialized = $this->getSerializer()->serialize($value);
         $this->assertIsString($serialized);
         $this->assertEquals($expected, $serialized);
     }
@@ -27,8 +26,7 @@ abstract class SerializerTest extends TestCase
      */
     public function testUnserialize($expected, $value)
     {
-        $s = $this->getSerializer();
-        $this->assertEquals($expected, $s->unserialize($value));
+        $this->assertEquals($expected, $this->getSerializer()->unserialize($value));
     }
 
     /**
