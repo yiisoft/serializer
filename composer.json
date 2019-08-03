@@ -1,7 +1,7 @@
 {
     "name": "yiisoft/serializer",
     "type": "library",
-    "description": "Yii Serializers Library",
+    "description": "Yii Serializer Library",
     "keywords": ["yii", "serializer"],
     "homepage": "http://www.yiiframework.com/",
     "license": "BSD-3-Clause",
