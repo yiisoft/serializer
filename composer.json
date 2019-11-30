@@ -2,7 +2,10 @@
     "name": "yiisoft/serializer",
     "type": "library",
     "description": "Yii Serializer Library",
-    "keywords": ["yii", "serializer"],
+    "keywords": [
+        "yii",
+        "serializer"
+    ],
     "homepage": "http://www.yiiframework.com/",
     "license": "BSD-3-Clause",
     "support": {
@@ -32,5 +35,8 @@
         "branch-alias": {
             "dev-master": "3.0.x-dev"
         }
+    },
+    "config": {
+        "sort-packages": true
     }
 }
