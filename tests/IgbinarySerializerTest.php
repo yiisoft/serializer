@@ -7,7 +7,7 @@ use Yiisoft\Serializer\SerializerInterface;
 
 class IgbinarySerializerTest extends SerializerTest
 {
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         if (!extension_loaded('igbinary')) {
             static::markTestSkipped('igbinary extension is not loaded');
@@ -33,11 +33,11 @@ class IgbinarySerializerTest extends SerializerTest
     public function dataProvider(): array
     {
         return [
-            'integer' => [1, hex2bin('000000020601'),],
-            'double' => [1.1, hex2bin('000000020c3ff199999999999a'),],
+            'int' => [1, hex2bin('000000020601'),],
+            'float' => [1.1, hex2bin('000000020c3ff199999999999a'),],
             'string' => ['a', hex2bin('00000002110161'),],
             'null' => [null, hex2bin('0000000200'),],
-            'boolean' => [true, hex2bin('0000000205'),],
+            'bool' => [true, hex2bin('0000000205'),],
             'object' => [new \stdClass(), hex2bin('000000021708737464436c6173731400'),],
             'array' => [[], hex2bin('000000021400'),],
         ];

@@ -25,11 +25,11 @@ class CallbackSerializerTest extends SerializerTest
     public function dataProvider(): array
     {
         return [
-            'integer' => [1, 'i:1;',],
-            'double' => [1.1, 'd:1.1;',],
+            'int' => [1, 'i:1;',],
+            'float' => [1.1, 'd:1.1;',],
             'string' => ['a', 's:1:"a";',],
             'null' => [null, 'N;',],
-            'boolean' => [true, 'b:1;',],
+            'bool' => [true, 'b:1;',],
             'object' => [new \stdClass(), 'O:8:"stdClass":0:{}',],
             'array' => [[], 'a:0:{}',],
         ];

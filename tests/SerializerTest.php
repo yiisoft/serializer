@@ -12,7 +12,7 @@ abstract class SerializerTest extends TestCase
      * @param $value
      * @param $expected
      */
-    public function testSerialize($value, $expected)
+    public function testSerialize($value, $expected): void
     {
         $serialized = $this->getSerializer()->serialize($value);
         $this->assertIsString($serialized);
@@ -24,7 +24,7 @@ abstract class SerializerTest extends TestCase
      * @param $expected
      * @param $value
      */
-    public function testUnserialize($expected, $value)
+    public function testUnserialize($expected, $value): void
     {
         $this->assertEquals($expected, $this->getSerializer()->unserialize($value));
     }
