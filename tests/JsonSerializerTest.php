@@ -28,11 +28,11 @@ class JsonSerializerTest extends SerializerTest
     public function dataProvider(): array
     {
         return [
-            'integer' => [1, '1',],
-            'double' => [1.1, '1.1',],
+            'int' => [1, '1',],
+            'float' => [1.1, '1.1',],
             'string' => ['a', '"a"',],
             'null' => [null, 'null',],
-            'boolean' => [true, 'true',],
+            'bool' => [true, 'true',],
             'object' => [new \stdClass(), '{}',],
             'array' => [[], '[]',],
         ];
