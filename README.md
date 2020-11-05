@@ -10,9 +10,11 @@ The package ...
 
 [![Latest Stable Version](https://poser.pugx.org/yiisoft/serializer/v/stable.png)](https://packagist.org/packages/yiisoft/serializer)
 [![Total Downloads](https://poser.pugx.org/yiisoft/serializer/downloads.png)](https://packagist.org/packages/yiisoft/serializer)
-[![Build Status](https://travis-ci.com/yiisoft/serializer.svg?branch=master)](https://travis-ci.com/yiisoft/serializer)
+[![Build Status](https://github.com/yiisoft/serializer/workflows/build/badge.svg)](https://github.com/yiisoft/serializer/actions)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/yiisoft/serializer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/yiisoft/serializer/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/yiisoft/serializer/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/yiisoft/serializer/?branch=master)
+[![static analysis](https://github.com/yiisoft/serializer/workflows/static%20analysis/badge.svg)](https://github.com/yiisoft/serializer/actions?query=workflow%3A%22static+analysis%22)
+[![type-coverage](https://shepherd.dev/github/yiisoft/serializer/coverage.svg)](https://shepherd.dev/github/yiisoft/serializer)
 
 ## General usage
 
@@ -22,6 +24,14 @@ The package is tested with [PHPUnit](https://phpunit.de/). To run tests:
 
 ```php
 ./vendor/bin/phpunit
+```
+
+### Mutation testing
+
+The package tests are checked with [Infection](https://infection.github.io/) mutation framework. To run it:
+
+```php
+./vendor/bin/infection
 ```
 
 ## Static analysis
