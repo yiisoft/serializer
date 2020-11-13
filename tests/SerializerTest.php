@@ -31,18 +31,9 @@ abstract class SerializerTest extends TestCase
         $this->assertEquals($expected, $this->getSerializer()->unserialize($value));
     }
 
-    /**
-     * @return SerializerInterface
-     */
     abstract public function getSerializer(): SerializerInterface;
 
-    /**
-     * @return array
-     */
     abstract public function serializeProvider(): array;
 
-    /**
-     * @return array
-     */
     abstract public function unserializeProvider(): array;
 }

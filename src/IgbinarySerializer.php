@@ -13,21 +13,11 @@ use function igbinary_unserialize;
  */
 final class IgbinarySerializer implements SerializerInterface
 {
-    /**
-     * {@inheritDoc}
-     *
-     * @see igbinary_serialize()
-     */
     public function serialize($value): string
     {
         return igbinary_serialize($value);
     }
 
-    /**
-     * {@inheritDoc}
-     *
-     * @see unserialize()
-     */
     public function unserialize(string $value)
     {
         return igbinary_unserialize($value);
