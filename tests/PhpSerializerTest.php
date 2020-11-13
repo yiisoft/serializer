@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yiisoft\Serializer\Tests;
 
+use stdClass;
 use Yiisoft\Serializer\PhpSerializer;
 use Yiisoft\Serializer\SerializerInterface;
 
-class PhpSerializerTest extends SerializerTest
+final class PhpSerializerTest extends SerializerTest
 {
     public function getSerializer(): SerializerInterface
     {
@@ -30,7 +33,7 @@ class PhpSerializerTest extends SerializerTest
             'string' => ['a', 's:1:"a";',],
             'null' => [null, 'N;',],
             'bool' => [true, 'b:1;',],
-            'object' => [new \stdClass(), 'O:8:"stdClass":0:{}',],
+            'object' => [new stdClass(), 'O:8:"stdClass":0:{}',],
             'array' => [[], 'a:0:{}',],
         ];
     }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yiisoft\Serializer;
 
 /**
@@ -9,15 +11,17 @@ interface SerializerInterface
 {
     /**
      * Serializes given value.
-     * @param mixed $value value to be serialized
+     *
+     * @param mixed $value value to be serialized.
      * @return string serialized value.
      */
     public function serialize($value): string;
 
     /**
-     * Restores value from its serialized representations
+     * Restores value from its serialized representations.
+     *
      * @param string $value serialized string.
-     * @return mixed restored value
+     * @return mixed restored value.
      */
     public function unserialize(string $value);
 }

@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yiisoft\Serializer\Tests;
 
+use stdClass;
 use Yiisoft\Serializer\JsonSerializer;
 use Yiisoft\Serializer\SerializerInterface;
 
-class JsonSerializerTest extends SerializerTest
+final class JsonSerializerTest extends SerializerTest
 {
     public function getSerializer(): SerializerInterface
     {
@@ -33,7 +36,7 @@ class JsonSerializerTest extends SerializerTest
             'string' => ['a', '"a"',],
             'null' => [null, 'null',],
             'bool' => [true, 'true',],
-            'object' => [new \stdClass(), '{}',],
+            'object' => [new stdClass(), '{}',],
             'array' => [[], '[]',],
         ];
     }

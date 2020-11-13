@@ -1,20 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yiisoft\Serializer;
+
+use function json_decode;
+use function json_encode;
 
 /**
  * JsonSerializer serializes data in JSON format.
  */
 final class JsonSerializer implements SerializerInterface
 {
-    private $options;
+    /**
+     * @param int The encoding options.
+     * @see http://www.php.net/manual/en/function.json-encode.php
+     */
+    private int $options;
 
     /**
-     * JsonSerializer constructor.
-     *
-     * @param int $options integer the encoding options. For more details please refer to
-     * <http://www.php.net/manual/en/function.json-encode.php>.
-     * Default is `JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE`.
+     * @param int $options The encoding options.
+     * @see http://www.php.net/manual/en/function.json-encode.php
      */
     public function __construct(int $options = JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
     {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yiisoft\Serializer\Tests;
 
 use PHPUnit\Framework\TestCase;
@@ -9,10 +11,10 @@ abstract class SerializerTest extends TestCase
 {
     /**
      * @dataProvider serializeProvider
-     * @param $value
-     * @param $expected
+     * @param mixed $value
+     * @param string $expected
      */
-    public function testSerialize($value, $expected): void
+    public function testSerialize($value, string $expected): void
     {
         $serialized = $this->getSerializer()->serialize($value);
         $this->assertIsString($serialized);
@@ -21,26 +23,17 @@ abstract class SerializerTest extends TestCase
 
     /**
      * @dataProvider unserializeProvider
-     * @param $expected
-     * @param $value
+     * @param mixed $expected
+     * @param string $value
      */
-    public function testUnserialize($expected, $value): void
+    public function testUnserialize($expected, string $value): void
     {
         $this->assertEquals($expected, $this->getSerializer()->unserialize($value));
     }
 
-    /**
-     * @return SerializerInterface
-     */
     abstract public function getSerializer(): SerializerInterface;
 
-    /**
-     * @return array
-     */
     abstract public function serializeProvider(): array;
 
-    /**
-     * @return array
-     */
     abstract public function unserializeProvider(): array;
 }
