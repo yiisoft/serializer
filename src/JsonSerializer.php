@@ -11,7 +11,7 @@ final class JsonSerializer implements SerializerInterface
      * @param int integer the encoding options.
      * @see http://www.php.net/manual/en/function.json-encode.php
      */
-    private $options;
+    private int $options;
 
     /**
      * @param int $options integer the encoding options.
