@@ -8,7 +8,7 @@ use stdClass;
 use Yiisoft\Serializer\IgbinarySerializer;
 use Yiisoft\Serializer\SerializerInterface;
 
-class IgbinarySerializerTest extends SerializerTest
+final class IgbinarySerializerTest extends SerializerTest
 {
     public static function setUpBeforeClass(): void
     {

@@ -8,7 +8,7 @@ use stdClass;
 use Yiisoft\Serializer\JsonSerializer;
 use Yiisoft\Serializer\SerializerInterface;
 
-class JsonSerializerTest extends SerializerTest
+final class JsonSerializerTest extends SerializerTest
 {
     public function getSerializer(): SerializerInterface
     {

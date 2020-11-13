@@ -8,7 +8,7 @@ use stdClass;
 use Yiisoft\Serializer\PhpSerializer;
 use Yiisoft\Serializer\SerializerInterface;
 
-class PhpSerializerTest extends SerializerTest
+final class PhpSerializerTest extends SerializerTest
 {
     public function getSerializer(): SerializerInterface
     {
