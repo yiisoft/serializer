@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Yiisoft\Serializer;
 
+use function json_decode;
+use function json_encode;
+
 /**
  * JsonSerializer serializes data in JSON format.
  */

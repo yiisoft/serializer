@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Yiisoft\Serializer\Tests;
 
+use stdClass;
 use Yiisoft\Serializer\IgbinarySerializer;
 use Yiisoft\Serializer\SerializerInterface;
 
@@ -40,7 +41,7 @@ class IgbinarySerializerTest extends SerializerTest
             'string' => ['a', hex2bin('00000002110161'),],
             'null' => [null, hex2bin('0000000200'),],
             'bool' => [true, hex2bin('0000000205'),],
-            'object' => [new \stdClass(), hex2bin('000000021708737464436c6173731400'),],
+            'object' => [new stdClass(), hex2bin('000000021708737464436c6173731400'),],
             'array' => [[], hex2bin('000000021400'),],
         ];
     }
