@@ -24,11 +24,11 @@ final class CallbackSerializer implements SerializerInterface
 
     public function serialize($value): string
     {
-        return \call_user_func($this->serializeCallback, $value);
+        return ($this->serializeCallback)($value);
     }
 
     public function unserialize(string $value)
     {
-        return \call_user_func($this->unserializeCallback, $value);
+        return ($this->unserializeCallback)($value);
     }
 }
