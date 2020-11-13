@@ -3,12 +3,14 @@
 namespace Yiisoft\Serializer;
 
 /**
- * PhpSerializer uses native PHP {@see serialize()} and {@see unserialize()} functions for serialization.
+ * PhpSerializer uses native PHP functions for serialization.
  */
 final class PhpSerializer implements SerializerInterface
 {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
+     *
+     * @see serialize()
      */
     public function serialize($value): string
     {
@@ -16,7 +18,9 @@ final class PhpSerializer implements SerializerInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
+     *
+     * @see unserialize()
      */
     public function unserialize(string $value)
     {
