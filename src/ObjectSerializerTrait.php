@@ -75,19 +75,20 @@ trait ObjectSerializerTrait
             ));
         }
 
-        $data = $this->serializer->decode($data, $format);
+        $decodedData = $this->serializer->decode($data, $format);
 
-        if (!is_array($data)) {
+        if (!is_array($decodedData)) {
             throw new InvalidArgumentException('The data for restoring the object is incorrect.');
         }
 
-        return $data;
+        return $decodedData;
     }
 
     /**
      * Checks that each item of the array is an object.
      *
      * @param array $objects
+     * @throws InvalidArgumentException if the array of objects is incorrect.
      */
     private function checkArrayObjects(array $objects): void
     {

@@ -45,13 +45,13 @@ final class JsonObjectSerializer implements ObjectSerializerInterface
 
     public function unserialize(string $value, string $class): object
     {
-        $value = $this->checkAndDecodeData($value, $class, JsonEncoder::FORMAT);
-        return $this->denormalizeObject($value, $class);
+        $decodedValue = $this->checkAndDecodeData($value, $class, JsonEncoder::FORMAT);
+        return $this->denormalizeObject($decodedValue, $class);
     }
 
     public function unserializeMultiple(string $value, string $class): array
     {
-        $value = $this->checkAndDecodeData($value, $class, JsonEncoder::FORMAT);
-        return $this->denormalizeObjects($value, $class);
+        $decodedValue = $this->checkAndDecodeData($value, $class, JsonEncoder::FORMAT);
+        return $this->denormalizeObjects($decodedValue, $class);
     }
 }

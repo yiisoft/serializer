@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Yiisoft\Serializer;
 
+/**
+ * ObjectSerializerInterface is designed to honestly serialize objects, its implementations
+ * must serialize an object and unserialize data back to an object of the same class.
+ */
 interface ObjectSerializerInterface
 {
     /**
