@@ -4,19 +4,22 @@ declare(strict_types=1);
 
 namespace Yiisoft\Serializer;
 
-use function json_decode;
-use function json_encode;
+use Symfony\Component\Serializer\Encoder\JsonDecode;
+use Symfony\Component\Serializer\Encoder\JsonEncode;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\JsonSerializableNormalizer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+
+use const JSON_UNESCAPED_SLASHES;
+use const JSON_UNESCAPED_UNICODE;
 
 /**
  * JsonSerializer serializes data in JSON format.
  */
 final class JsonSerializer implements SerializerInterface
 {
-    /**
-     * @param int The encoding options.
-     * @see http://www.php.net/manual/en/function.json-encode.php
-     */
-    private int $options;
+    private Serializer $serializer;
 
     /**
      * @param int $options The encoding options.
@@ -24,16 +27,22 @@ final class JsonSerializer implements SerializerInterface
      */
     public function __construct(int $options = JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
     {
-        $this->options = $options;
+        $this->serializer = new Serializer(
+            [new JsonSerializableNormalizer(), new ObjectNormalizer()],
+            [new JsonEncoder(
+                new JsonEncode([JsonEncode::OPTIONS => $options]),
+                new JsonDecode([JsonDecode::ASSOCIATIVE => true]),
+            )],
+        );
     }
 
     public function serialize($value): string
     {
-        return json_encode($value, $this->options);
+        return $this->serializer->serialize($value, JsonEncoder::FORMAT);
     }
 
     public function unserialize(string $value)
     {
-        return json_decode($value, true);
+        return $this->serializer->decode($value, JsonEncoder::FORMAT);
     }
 }
