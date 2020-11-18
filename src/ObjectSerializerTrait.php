@@ -21,13 +21,13 @@ trait ObjectSerializerTrait
     /**
      * Restores object from the decoded data.
      *
-     * @param array $data The decoded data for restoring the object.
+     * @param mixed $data The decoded data for restoring the object.
      * @param string $class The class name of the object to be restored.
      * @return object The restored object.
      * @throws InvalidArgumentException If the data to restore the object is incorrect.
      * @psalm-suppress InvalidReturnType
      */
-    private function denormalizeObject(array $data, string $class): object
+    private function denormalizeObject($data, string $class): object
     {
         try {
             return $this->serializer->denormalize($data, $class);
@@ -42,7 +42,7 @@ trait ObjectSerializerTrait
     /**
      * Restores array objects from the decoded data.
      *
-     * @param array[] $data The decoded data for restoring the object.
+     * @param mixed[] $data The decoded data for restoring the object.
      * @param string $class The class name of the objects to be restored.
      * @return object[] The restored array objects.
      * @throws InvalidArgumentException If the data to restore the objects is incorrect.
