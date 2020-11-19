@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Yiisoft\Serializer\Tests;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use Yiisoft\Serializer\Tests\TestAsset\DummyData;
@@ -96,5 +97,40 @@ final class XmlObjectSerializerTest extends TestCase
 
         $this->assertSame(DummyDataHelper::xml($xml), $serializer->serializeMultiple($objects));
         $this->assertEquals($objects, $serializer->unserializeMultiple($xml, DummyData::class));
+    }
+
+    public function testSerializeMultipleThrowExceptionForInvalidArrayObjects(): void
+    {
+        $serializer = new XmlObjectSerializer();
+        $this->expectException(InvalidArgumentException::class);
+        $serializer->serializeMultiple([new stdClass(), stdClass::class]);
+    }
+
+    public function testUnserializeThrowExceptionForClassNotExist(): void
+    {
+        $serializer = new XmlObjectSerializer();
+        $this->expectException(InvalidArgumentException::class);
+        $serializer->unserialize('<foo>bar</foo>', 'Class\Not\Exist');
+    }
+
+    public function testUnserializeMultipleThrowExceptionForClassNotExist(): void
+    {
+        $serializer = new XmlObjectSerializer();
+        $this->expectException(InvalidArgumentException::class);
+        $serializer->unserializeMultiple('<foo>bar</foo>', 'Class\Not\Exist');
+    }
+
+    public function testUnserializeThrowExceptionForIncorrectData(): void
+    {
+        $serializer = new XmlObjectSerializer();
+        $this->expectException(InvalidArgumentException::class);
+        $serializer->unserialize('<foo>bar</foo>', DummyData::class);
+    }
+
+    public function testUnserializeMultipleThrowExceptionForIncorrectData(): void
+    {
+        $serializer = new XmlObjectSerializer();
+        $this->expectException(InvalidArgumentException::class);
+        $serializer->unserializeMultiple('<foo>bar</foo>', DummyData::class);
     }
 }
