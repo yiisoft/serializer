@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Yiisoft\Serializer\Tests;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
+use stdClass;
 use Yiisoft\Serializer\Tests\TestAsset\DummyData;
 use Yiisoft\Serializer\JsonObjectSerializer;
 
@@ -65,5 +67,40 @@ final class JsonObjectSerializerTest extends TestCase
 
         $this->assertSame($json, $this->serializer->serializeMultiple($objects));
         $this->assertEquals($objects, $this->serializer->unserializeMultiple($json, DummyData::class));
+    }
+
+    public function testSerializeMultipleThrowExceptionForInvalidArrayObjects(): void
+    {
+        $serializer = new JsonObjectSerializer();
+        $this->expectException(InvalidArgumentException::class);
+        $serializer->serializeMultiple([new stdClass(), stdClass::class]);
+    }
+
+    public function testUnserializeThrowExceptionForClassNotExist(): void
+    {
+        $serializer = new JsonObjectSerializer();
+        $this->expectException(InvalidArgumentException::class);
+        $serializer->unserialize('{"foo":"bar"}', 'Class\Not\Exist');
+    }
+
+    public function testUnserializeMultipleThrowExceptionForClassNotExist(): void
+    {
+        $serializer = new JsonObjectSerializer();
+        $this->expectException(InvalidArgumentException::class);
+        $serializer->unserializeMultiple('{"foo":"bar"}', 'Class\Not\Exist');
+    }
+
+    public function testUnserializeThrowExceptionForIncorrectData(): void
+    {
+        $serializer = new JsonObjectSerializer();
+        $this->expectException(InvalidArgumentException::class);
+        $serializer->unserialize('{"foo":"bar"}', DummyData::class);
+    }
+
+    public function testUnserializeMultipleThrowExceptionForIncorrectData(): void
+    {
+        $serializer = new JsonObjectSerializer();
+        $this->expectException(InvalidArgumentException::class);
+        $serializer->unserializeMultiple('{"foo":"bar"}', DummyData::class);
     }
 }
