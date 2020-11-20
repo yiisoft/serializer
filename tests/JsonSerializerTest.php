@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Yiisoft\Serializer\Tests;
 
+use function json_encode;
 use stdClass;
 use Yiisoft\Serializer\JsonSerializer;
 use Yiisoft\Serializer\SerializerInterface;
 use Yiisoft\Serializer\Tests\TestAsset\DummyData;
-use Yiisoft\Serializer\Tests\TestAsset\DummyDataJsonSerializable;
 
-use function json_encode;
+use Yiisoft\Serializer\Tests\TestAsset\DummyDataJsonSerializable;
 
 final class JsonSerializerTest extends SerializerTest
 {

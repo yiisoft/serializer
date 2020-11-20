@@ -11,6 +11,7 @@ abstract class SerializerTest extends TestCase
 {
     /**
      * @dataProvider serializeProvider
+     *
      * @param mixed $value
      * @param string $expected
      */
@@ -23,6 +24,7 @@ abstract class SerializerTest extends TestCase
 
     /**
      * @dataProvider unserializeProvider
+     *
      * @param mixed $expected
      * @param string $value
      */
