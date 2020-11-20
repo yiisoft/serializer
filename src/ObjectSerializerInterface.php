@@ -14,6 +14,7 @@ interface ObjectSerializerInterface
      * Serializes given object.
      *
      * @param object $object to be serialized.
+     *
      * @return string serialized object.
      */
     public function serialize(object $object): string;
@@ -22,6 +23,7 @@ interface ObjectSerializerInterface
      * Serializes given array objects.
      *
      * @param object[] $objects to be serialized.
+     *
      * @return string serialized array objects.
      */
     public function serializeMultiple(array $objects): string;
@@ -31,6 +33,7 @@ interface ObjectSerializerInterface
      *
      * @param string $value The serialized string.
      * @param string $class The class name of the object to be restored.
+     *
      * @return object The restored object.
      */
     public function unserialize(string $value, string $class): object;
@@ -40,6 +43,7 @@ interface ObjectSerializerInterface
      *
      * @param string $value The serialized string.
      * @param string $class The class name of the objects to be restored.
+     *
      * @return object[] The restored array objects.
      */
     public function unserializeMultiple(string $value, string $class): array;

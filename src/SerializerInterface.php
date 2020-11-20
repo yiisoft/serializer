@@ -13,6 +13,7 @@ interface SerializerInterface
      * Serializes given value.
      *
      * @param mixed $value value to be serialized.
+     *
      * @return string serialized value.
      */
     public function serialize($value): string;
@@ -21,6 +22,7 @@ interface SerializerInterface
      * Restores value from its serialized representations.
      *
      * @param string $value serialized string.
+     *
      * @return mixed restored value.
      */
     public function unserialize(string $value);

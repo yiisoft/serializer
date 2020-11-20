@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Yiisoft\Serializer;
 
+use const JSON_UNESCAPED_SLASHES;
+use const JSON_UNESCAPED_UNICODE;
 use Symfony\Component\Serializer\Encoder\JsonDecode;
 use Symfony\Component\Serializer\Encoder\JsonEncode;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\JsonSerializableNormalizer;
+
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-
-use const JSON_UNESCAPED_SLASHES;
-use const JSON_UNESCAPED_UNICODE;
 
 /**
  * JsonSerializer serializes data in JSON format.
@@ -23,6 +23,7 @@ final class JsonSerializer implements SerializerInterface
 
     /**
      * @param int $options The encoding options.
+     *
      * @see http://www.php.net/manual/en/function.json-encode.php
      */
     public function __construct(int $options = JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)

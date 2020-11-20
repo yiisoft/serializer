@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Yiisoft\Serializer;
 
-use InvalidArgumentException;
-use Symfony\Component\Serializer\Exception\ExceptionInterface;
-use Symfony\Component\Serializer\Serializer;
-
 use function class_exists;
 use function gettype;
+use InvalidArgumentException;
+
 use function is_array;
 use function is_object;
 use function sprintf;
+use Symfony\Component\Serializer\Exception\ExceptionInterface;
+use Symfony\Component\Serializer\Serializer;
 
 trait ObjectSerializerTrait
 {
@@ -23,8 +23,10 @@ trait ObjectSerializerTrait
      *
      * @param mixed $data The decoded data for restoring the object.
      * @param string $class The class name of the object to be restored.
-     * @return object The restored object.
+     *
      * @throws InvalidArgumentException If the data to restore the object is incorrect.
+     *
+     * @return object The restored object.
      * @psalm-suppress InvalidReturnType
      */
     private function denormalizeObject($data, string $class): object
@@ -44,8 +46,10 @@ trait ObjectSerializerTrait
      *
      * @param mixed[] $data The decoded data for restoring the object.
      * @param string $class The class name of the objects to be restored.
-     * @return object[] The restored array objects.
+     *
      * @throws InvalidArgumentException If the data to restore the objects is incorrect.
+     *
+     * @return object[] The restored array objects.
      * @psalm-suppress InvalidReturnType
      */
     private function denormalizeObjects(array $data, string $class): array
@@ -63,8 +67,10 @@ trait ObjectSerializerTrait
      * @param string $data The serialized string.
      * @param string $class The name of the object class to be restored.
      * @param string $format The format of the sterilized data.
-     * @return array The decoded data.
+     *
      * @throws InvalidArgumentException if class does not exist or data to restore the object is incorrect.
+     *
+     * @return array The decoded data.
      */
     private function checkAndDecodeData(string $data, string $class, string $format): array
     {
@@ -88,6 +94,7 @@ trait ObjectSerializerTrait
      * Checks that each item of the array is an object.
      *
      * @param array $objects
+     *
      * @throws InvalidArgumentException if the array of objects is incorrect.
      */
     private function checkArrayObjects(array $objects): void

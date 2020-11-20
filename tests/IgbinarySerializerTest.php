@@ -13,7 +13,7 @@ final class IgbinarySerializerTest extends SerializerTest
     public static function setUpBeforeClass(): void
     {
         if (!extension_loaded('igbinary')) {
-            static::markTestSkipped('igbinary extension is not loaded');
+            self::markTestSkipped('igbinary extension is not loaded');
         }
         parent::setUpBeforeClass();
     }

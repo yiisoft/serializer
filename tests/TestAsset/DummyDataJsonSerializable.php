@@ -23,7 +23,7 @@ final class DummyDataJsonSerializable implements JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            'data' => 'jsonSerialize'
+            'data' => 'jsonSerialize',
         ];
     }
 }

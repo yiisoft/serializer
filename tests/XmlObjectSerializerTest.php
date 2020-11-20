@@ -17,7 +17,7 @@ final class XmlObjectSerializerTest extends TestCase
     {
         $serializer = new XmlObjectSerializer();
         $this->assertSame(
-            DummyDataHelper::xml("<response/>"),
+            DummyDataHelper::xml('<response/>'),
             $serializer->serialize(new stdClass())
         );
     }

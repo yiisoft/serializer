@@ -49,7 +49,7 @@ final class XmlSerializerTest extends SerializerTest
                         'null' => null,
                         'without-key-1',
                         'without-key-2',
-                    ]
+                    ],
                 ],
                 <<<EOF
                     <response>

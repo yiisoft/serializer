@@ -7,8 +7,8 @@ namespace Yiisoft\Serializer\Tests;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use stdClass;
-use Yiisoft\Serializer\Tests\TestAsset\DummyData;
 use Yiisoft\Serializer\JsonObjectSerializer;
+use Yiisoft\Serializer\Tests\TestAsset\DummyData;
 
 final class JsonObjectSerializerTest extends TestCase
 {

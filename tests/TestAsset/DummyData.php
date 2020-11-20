@@ -43,6 +43,7 @@ final class DummyData
 
     /**
      * @param bool $asInt
+     *
      * @return bool|int
      */
     public function isBool(bool $asInt = false)
